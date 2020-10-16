@@ -45,5 +45,4 @@ namespace TechJobsOO
             return value;
         }
     }
-    }
 }
