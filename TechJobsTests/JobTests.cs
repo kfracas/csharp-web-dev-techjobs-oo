@@ -26,6 +26,16 @@ namespace TechJobsTests
             PositionType testPositionType = new PositionType("Quality control");
             CoreCompetency testCoreCompetency = new CoreCompetency("Persistence");
             Job testJob = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
+            Assert.AreEqual(testJob.Name + testJob.EmployerName + testJob.EmployerLocation + testJob.JobType + testJob.JobCoreCompetency, "Product testerACMEDesertQuality controlPersistence");
+        }
+        [TestMethod]
+        public void ToStringTest()
+        {
+            Employer testEmployer = new Employer("ACME");
+            Location testLocation = new Location("Desert");
+            PositionType testPositionType = new PositionType("Quality control");
+            CoreCompetency testCoreCompetency = new CoreCompetency("Persistence");
+            Job testJob = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
             Assert.AreEqual(testJob.ToString(),"Product tester - Employer Name: ACME, Location: Desert, Type: Quality control, Core Competency: Persistence");
         }
     }
