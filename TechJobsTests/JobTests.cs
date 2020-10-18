@@ -13,6 +13,7 @@ namespace TechJobsTests
         CoreCompetency testCoreCompetency;
         Job testJob1;
         Job testJob2;
+        Job testJob3;
 
         [TestInitialize]
         public void CreateJobObjects()
@@ -23,6 +24,7 @@ namespace TechJobsTests
             testCoreCompetency = new CoreCompetency("Persistence");
             testJob1 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
             testJob2 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
+            testJob3 = new Job();
         }
         [TestMethod]
         public void TestMethod1()
@@ -44,9 +46,19 @@ namespace TechJobsTests
             Assert.IsFalse(testJob1.Equals(testJob2));
         }
         [TestMethod]
-        public void ToStringTest()
+        public void ToStringBlankLineTest()
         {
-            Assert.AreEqual(testJob1.ToString(),"Product tester - Employer Name: ACME, Location: Desert, Type: Quality control, Core Competency: Persistence");
+            Assert.IsTrue(testJob1.ToString().StartsWith(' ') && testJob1.ToString().EndsWith(' '));
+        }
+        [TestMethod]
+        public void ToStringPrintData()
+        {
+            Assert.AreEqual(testJob1.ToString(), " \nID: 19\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n ");
+        }
+        [TestMethod]
+        public void ToStringDataNotAvailable()
+        {
+            Assert.AreEqual(testJob3.ToString(), " \nID: 18\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n ");
         }
     }
 }

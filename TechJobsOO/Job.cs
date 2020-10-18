@@ -28,8 +28,10 @@ namespace TechJobsOO
         }
         public override string ToString()
         {
-            return Name + " - Employer Name: " + EmployerName + ", Location: " + EmployerLocation + ", Type: " + JobType + ", Core Competency: " + JobCoreCompetency;
+            
+            return " " + "\n" + "ID: " + Id + "\n" + "Name: " + Name + "\n" + "Employer: " + EmployerName + "\n" + "Location: " + EmployerLocation + "\n" + "Position Type: " + JobType + "\n" + "Core Competency: " + JobCoreCompetency + "\n" + " ";
         }
+
         // TODO: Generate Equals() and GetHashCode() methods.
         public override bool Equals(object obj)
         {
