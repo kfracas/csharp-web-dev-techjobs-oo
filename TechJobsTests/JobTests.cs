@@ -7,6 +7,23 @@ namespace TechJobsTests
     [TestClass]
     public class JobTests
     {
+        Employer testEmployer;
+        Location testLocation;
+        PositionType testPositionType;
+        CoreCompetency testCoreCompetency;
+        Job testJob1;
+        Job testJob2;
+
+        [TestInitialize]
+        public void CreateJobObjects()
+        {
+            testEmployer = new Employer("ACME");
+            testLocation = new Location("Desert");
+            testPositionType = new PositionType("Quality control");
+            testCoreCompetency = new CoreCompetency("Persistence");
+            testJob1 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
+            testJob2 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
+        }
         [TestMethod]
         public void TestMethod1()
         {
@@ -14,40 +31,22 @@ namespace TechJobsTests
         [TestMethod]
         public void TestSettingJobId()
         {
-            Job job1 = new Job();
-            Job job2 = new Job();
-            Assert.IsTrue(job2.Id == job1.Id + 1);
+            Assert.IsTrue(testJob2.Id == testJob1.Id + 1);
         }
         [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
-            Employer testEmployer = new Employer("ACME");
-            Location testLocation = new Location("Desert");
-            PositionType testPositionType = new PositionType("Quality control");
-            CoreCompetency testCoreCompetency = new CoreCompetency("Persistence");
-            Job testJob = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
-            Assert.AreEqual(testJob.Name + testJob.EmployerName + testJob.EmployerLocation + testJob.JobType + testJob.JobCoreCompetency, "Product testerACMEDesertQuality controlPersistence");
+            Assert.AreEqual(testJob1.Name + testJob1.EmployerName + testJob1.EmployerLocation + testJob1.JobType + testJob1.JobCoreCompetency, "Product testerACMEDesertQuality controlPersistence");
         }
         [TestMethod]
         public void TestJobsForEquality()
         {
-            Employer testEmployer = new Employer("ACME");
-            Location testLocation = new Location("Desert");
-            PositionType testPositionType = new PositionType("Quality control");
-            CoreCompetency testCoreCompetency = new CoreCompetency("Persistence");
-            Job testJob1 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
-            Job testJob2 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
             Assert.IsFalse(testJob1.Equals(testJob2));
         }
         [TestMethod]
         public void ToStringTest()
         {
-            Employer testEmployer = new Employer("ACME");
-            Location testLocation = new Location("Desert");
-            PositionType testPositionType = new PositionType("Quality control");
-            CoreCompetency testCoreCompetency = new CoreCompetency("Persistence");
-            Job testJob = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
-            Assert.AreEqual(testJob.ToString(),"Product tester - Employer Name: ACME, Location: Desert, Type: Quality control, Core Competency: Persistence");
+            Assert.AreEqual(testJob1.ToString(),"Product tester - Employer Name: ACME, Location: Desert, Type: Quality control, Core Competency: Persistence");
         }
     }
 }
