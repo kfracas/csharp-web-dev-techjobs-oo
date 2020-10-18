@@ -26,6 +26,10 @@ namespace TechJobsOO
             JobType = jobType;
             JobCoreCompetency = jobCoreCompetency;
         }
+        public override string ToString()
+        {
+            return Name + " - Employer Name: " + EmployerName + ", Location: " + EmployerLocation + ", Type: " + JobType + ", Core Competency: " + JobCoreCompetency;
+        }
         // TODO: Generate Equals() and GetHashCode() methods.
         public override bool Equals(object obj)
         {
