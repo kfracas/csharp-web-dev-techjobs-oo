@@ -7,10 +7,6 @@ namespace TechJobsTests
     [TestClass]
     public class JobTests
     {
-        Employer testEmployer;
-        Location testLocation;
-        PositionType testPositionType;
-        CoreCompetency testCoreCompetency;
         Job testJob1;
         Job testJob2;
         Job testJob3;
@@ -19,13 +15,9 @@ namespace TechJobsTests
         [TestInitialize]
         public void CreateJobObjects()
         {
-            testEmployer = new Employer("ACME");
-            testLocation = new Location("Desert");
-            testPositionType = new PositionType("Quality control");
-            testCoreCompetency = new CoreCompetency("Persistence");
-            testJob1 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
-            testJob2 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
-            testJob3 = new Job("Job Placeholder");
+            testJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            testJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            testJob3 = new Job("Job Placeholder", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
             testJob4 = new Job();
         }
         [TestMethod]
