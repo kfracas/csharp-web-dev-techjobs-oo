@@ -14,6 +14,7 @@ namespace TechJobsTests
         Job testJob1;
         Job testJob2;
         Job testJob3;
+        Job testJob4;
 
         [TestInitialize]
         public void CreateJobObjects()
@@ -24,7 +25,8 @@ namespace TechJobsTests
             testCoreCompetency = new CoreCompetency("Persistence");
             testJob1 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
             testJob2 = new Job("Product tester", testEmployer, testLocation, testPositionType, testCoreCompetency);
-            testJob3 = new Job();
+            testJob3 = new Job("Job Placeholder");
+            testJob4 = new Job();
         }
         [TestMethod]
         public void TestMethod1()
@@ -53,12 +55,17 @@ namespace TechJobsTests
         [TestMethod]
         public void ToStringPrintData()
         {
-            Assert.AreEqual(testJob1.ToString(), " \nID: 19\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n ");
+            Assert.AreEqual(testJob1.ToString(), " \nID: 29\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n ");
         }
         [TestMethod]
         public void ToStringDataNotAvailable()
         {
-            Assert.AreEqual(testJob3.ToString(), " \nID: 18\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n ");
+            Assert.AreEqual(testJob3.ToString(), " \nID: 23\nName: Job Placeholder\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n ");
+        }
+        [TestMethod]
+        public void ToStringJobDoesNotExist()
+        {
+            Assert.AreEqual(testJob4.ToString(), " \nOOPS! This job does not seem to exist.\n ");
         }
     }
 }

@@ -26,10 +26,30 @@ namespace TechJobsOO
             JobType = jobType;
             JobCoreCompetency = jobCoreCompetency;
         }
+        public Job(string name) : this()
+        {
+            Name = name;
+        }
         public override string ToString()
         {
-            
-            return " " + "\n" + "ID: " + Id + "\n" + "Name: " + Name + "\n" + "Employer: " + EmployerName + "\n" + "Location: " + EmployerLocation + "\n" + "Position Type: " + JobType + "\n" + "Core Competency: " + JobCoreCompetency + "\n" + " ";
+            object tempName;
+            object tempEmpName;
+            object tempEmpLocation;
+            object tempJobType;
+            object tempJobCompetency;
+            if (Name == null) { tempName = "Data not available"; } else { tempName = Name; }
+            if (EmployerName == null) { tempEmpName = "Data not available"; } else { tempEmpName = EmployerName; }
+            if (EmployerLocation == null) { tempEmpLocation = "Data not available"; } else { tempEmpLocation = EmployerLocation; }
+            if (JobType == null) { tempJobType = "Data not available"; } else { tempJobType = JobType; }
+            if (JobCoreCompetency == null) { tempJobCompetency = "Data not available"; } else { tempJobCompetency = JobCoreCompetency; }
+            if (Name == null && EmployerName == null && EmployerLocation == null && JobType == null && JobCoreCompetency == null)
+            {
+                return " " + "\n" + "OOPS! This job does not seem to exist." + "\n" + " ";
+            }
+            else
+            {
+                return " " + "\n" + "ID: " + Id + "\n" + "Name: " + tempName + "\n" + "Employer: " + tempEmpName + "\n" + "Location: " + tempEmpLocation + "\n" + "Position Type: " + tempJobType + "\n" + "Core Competency: " + tempJobCompetency + "\n" + " ";
+            }
         }
 
         // TODO: Generate Equals() and GetHashCode() methods.
