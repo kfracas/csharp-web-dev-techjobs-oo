@@ -47,12 +47,12 @@ namespace TechJobsTests
         [TestMethod]
         public void ToStringPrintData()
         {
-            Assert.AreEqual(testJob1.ToString(), " \nID: 29\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n ");
+            Assert.AreEqual(testJob1.ToString(), $" \nID: {testJob1.Id}\nName: {testJob1.Name}\nEmployer: {testJob1.EmployerName}\nLocation: {testJob1.EmployerLocation}\nPosition Type: {testJob1.JobType}\nCore Competency: {testJob1.JobCoreCompetency}\n ");
         }
         [TestMethod]
         public void ToStringDataNotAvailable()
         {
-            Assert.AreEqual(testJob3.ToString(), " \nID: 23\nName: Job Placeholder\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n ");
+            Assert.AreEqual(testJob3.ToString(), $" \nID: {testJob3.Id}\nName: {testJob3.Name}\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n ");
         }
         [TestMethod]
         public void ToStringJobDoesNotExist()
